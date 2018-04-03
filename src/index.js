@@ -174,6 +174,7 @@ class DBLAPI {
     if (!id) throw new Error('getOwners requires id as argument');
     const response = await this._request('get', `bots/${id}`);
     return response.body.owners
+  }
 }
 
 module.exports = DBLAPI;
