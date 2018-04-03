@@ -163,6 +163,17 @@ class DBLAPI {
     const response = await this._request('get', 'bots/check', { userId: id }, true);
     return !!response.body.voted;
   }
+  
+  /**
+  * Returns the owner list for the specified bot.
+  * @param {string} id The ID of the bot to check.
+  * @returns {Promise<Array>}
+  */
+  
+  async getOwners(id) {
+    if (!id) throw new Error('getOwners requires id as argument');
+    const response = await this._request('get', `bots/${id}`);
+    return response.body.owners
 }
 
 module.exports = DBLAPI;
